@@ -18,18 +18,18 @@ while True:
         bbasicPay = float(input("Please provide the employee's basic pay: "))
         aallowance = float(input("Please provide the employee's allowance: "))
         ddeductions = float(input("Please provide the employee's deductions: "))
-        ttaxes = float(input("Please provide the employee's taxes "))
+        ttaxes = float(input("Please provide the employee's taxes: "))
 
-        nnetPay = bbasicPay + aallowance
-        ggrossPay = nnetPay - ttaxes - ddeductions
+        nnetpay = bbasicPay + aallowance
+        ggrossPay = nnetpay - ttaxes - ddeductions
 
         myEmployees.update({eid: {
             "Name": nname,
-            "Basicpay": bbasicPay,
+            "Basic Pay": bbasicPay,
             "Allowance": aallowance,
             "Deductions": ddeductions,
             "Taxes": ttaxes,
-            "Net Pay": nnetPay,
+            "Net Pay": nnetpay,
             "Gross Pay": ggrossPay,
         }
         })
@@ -52,30 +52,34 @@ while True:
             if employee1 not in myEmployees:
                 print("That student is not in the list")
             else:
-                 Name = input("Please provide the employee's name: ")
-                 BasicPay = input("Please provide the employee's basic pay: ")
-                 Allowance = input("Please provide the employee's allowance: ")
-                 Deductions = input("Please provide the employee's deductions: ")
-                 Taxes = float(input("Please provide the employee's taxes "))
+                 nname = input("Please provide the new employee's name: ")
+                 bbasicPay = float(input("Please provide the new employee's basic pay: "))
+                 aallowance = float(input("Please provide the new employee's allowance: "))
+                 ddeductions = float(input("Please provide the new employee's deductions: "))
+                 ttaxes = float(input("Please provide the new employee's taxes: "))
 
-                 NetPay = BasicPay + Allowance
-                 GrossPay = NetPay - (Taxes + Deductions)
+                 nnetPay = bbasicPay + aallowance
+                 ggrosspay = nnetPay - (ttaxes + ddeductions)
 
             myEmployees[employee1].update({
-                    "name": Name,
-                    "Basic pay": BasicPay,
-                    "Allowance": Allowance,
-                    "Deductions": Deductions,
-                    "Taxes": Taxes,
-                    "Net Pay": NetPay,
-                    "Gross Pay": GrossPay,
+                    "Name": nname,
+                    "Basic Pay": bbasicPay,
+                    "Allowance": aallowance,
+                    "Deductions": ddeductions,
+                    "Taxes": ttaxes,
+                    "Net Pay": nnetpay,
+                    "Gross Pay": ggrosspay,
                 })
 
 
-
     elif option == "4":
-        for employees_record in myEmployees.items():
-             print("These are all the employees in the record", employees_record)
+        if len(myEmployees) == 0:
+            print("No employees found.")
+
+        else:
+            print("These are all the employees in the record")
+            for employees_record in myEmployees.items():
+             print(employees_record)
              print("------------------------------------")
 
     elif option == "5":
