@@ -8,15 +8,15 @@ class Queue:
     def __init__(self):
         self.element = []
 
-    def enqueue(self, num):
-        num = valueTxt.get(1.0, "end-1c")
-        if x:
-            self.element.append(x)
+    def enqueue(self):
+        val = valueTxt.get(1.0, "end-1c")
+        if val:
+            self.element.append(val)
             valueTxt.delete("1.0", "end")
-            output_label.config(text="Added: " + num)
+            output_label.config(text="Added: " + val)
 
         else:
-            output_label.config(text="Enter a value:")
+            output_label.config(text="Enter a value")
 
     def dequeue(self):
         if self.element:
@@ -68,4 +68,3 @@ q1 = Queue()
 
 
 top.mainloop()
-
