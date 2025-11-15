@@ -19,7 +19,7 @@ class Queue:
             output_label.config(text="Enter a value:")
 
     def dequeue(self):
-        if len(self.element) > 0:
+        if self.element:
             removed = self.element.pop(0)
 
         else:
@@ -68,3 +68,4 @@ q1 = Queue()
 
 
 top.mainloop()
+
