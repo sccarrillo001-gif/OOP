@@ -7,18 +7,22 @@ class Stack:
     def __init__(self):
         self.element = []
 
-    def push(self):
-        self.element.append((valueTxt.get(1.0, "end-1c")))
-        valueTxt.delete(1.0, "end")
+    def stack(self):
+        val = valueTxt.get(1.0, "end-1c")
+        if val:
+            self.element.append(val)
+            valueTxt.delete(1.0, "end")
+        else:
+            output_label.config(text="Enter a value")
 
-    def pop(self):
-        if len(self.element) > 0:
+    def unstack(self):
+        if self.element:
             self.element.pop()
         else:
             output_label.config(text="Stack is empty")
 
     def displaystack(self):
-        if len(self.element) == 0:
+        if not self.element:
             output_label.config(text="Stack is empty")
         else:
             result = "Elements in Stack: "
@@ -56,5 +60,6 @@ output_label = Label(top, text="welcome")
 output_label.place(x=70, y=200)
 
 s1 = Stack()
+
 
 top.mainloop()
