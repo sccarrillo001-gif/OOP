@@ -8,25 +8,25 @@ class Queue:
     def __init__(self):
         self.element = []
 
-    def enqueue(self):
-        x = valueTxt.get(1.0, "end-1c")
-        if x != "":
+    def enqueue(self, num):
+        num = valueTxt.get(1.0, "end-1c")
+        if x:
             self.element.append(x)
             valueTxt.delete("1.0", "end")
-            output_label.config(text="Added: " + x)
+            output_label.config(text="Added: " + num)
 
         else:
-            output_label.config(text="Please enter a value!")
+            output_label.config(text="Enter a value:")
 
     def dequeue(self):
         if len(self.element) > 0:
             removed = self.element.pop(0)
 
         else:
-            output_label.config(text="Queue is empty!")
+            output_label.config(text="Queue is empty")
 
     def displayQueue(self):
-        if len(self.element) == 0:
+        if not self.element:
             output_label.config(text="Queue is empty")
         else:
             result = "Elements in Queue: "
@@ -64,6 +64,7 @@ output_label = Label(top, text="Queue: []")
 output_label.place(x=70, y=200)
 
 q1 = Queue()
+
 
 
 top.mainloop()
