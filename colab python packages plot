@@ -1,0 +1,24 @@
+import pandas as pd
+df = pd.read_csv("data.csv")
+
+for x in df.index:
+    if df.loc[x, "Calories"] < 500:
+        df.loc[x, "Calories"] = 100
+
+df
+
+
+for x in df.index:
+  average_val = (df.loc[x, "Pulse"] + df.loc[x, "Maxpulse"])/2
+  df.loc[x, "average"] = average_val
+
+df
+
+
+import matplotlib.pyplot as plt
+df.plot()
+plt.show()
+
+
+df.plot(kind = 'scatter', x = 'Duration', y = 'Calories')
+plt.show()
