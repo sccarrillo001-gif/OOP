@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("data01.csv")
+
+median = df["median_house_value"].median()
+print(median)
+
+median
+
+mediantr = df["median_house_value"].median()
+
+for x in df.index:
+  if df.loc[x, "total_rooms"] < 500:
+    df.loc[x, "total_rooms"] = mediantr
+df
+
+for x in df.index:
+  if df.loc[x, "housing_median_age"] < 25:
+    print(df.loc[x])
+
+df.plot(kind = 'scatter', x = 'median_income', marker = 'x', y = 'households')
+
+plt.show()
